@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="pie" style="width: 1000px; height: 800px"></div>
+
+	<script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.1.0/echarts.min.js"></script>
+	<script>
+       const option = {
+           title: {
+               text: '男性员工比例比例',
+               subtext: '共 72 人',
+               left: 'left'
+           },
+            legend: {
+                top: 'top'
+            },
+           tooltip: {
+               trigger: 'item'
+           },
+            toolbox: {
+                show: true,
+                feature: {
+                    mark: {show: true},
+                    dataView: {show: true, readOnly: false},
+                    restore: {show: true},
+                    saveAsImage: {show: true}
+                }
+            },
+            series: [
+                {
+                    name: '面积模式',
+                    type: 'pie',
+                    radius: [50, 250],
+                    center: ['50%', '50%'],
+                    roseType: 'area',
+                    itemStyle: {
+                        borderRadius: 8
+                    },
+                    data: [
+                        {value: 27, name: '前台部门'},
+                        {value: 24, name: '售后部门'},
+                        {value: 18, name: '技术部门'},
+                        {value: 3, name: '管理部门'},
+
+                    ]
+                }
+            ]
+        };
+
+       var chartDom = document.getElementById('pie');
+       var myChart = echarts.init(chartDom);
+       myChart.setOption(option);
+    </script>
+</body>
+</html>
